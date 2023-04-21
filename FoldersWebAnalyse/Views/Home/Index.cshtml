@@ -10,14 +10,14 @@
     <table>
         <tr>
             <td> <h3>Имя диска</h3></td>
-            <td><h3>Общий размер диска</h3></td>
+            <td><h3>Общий/занятый объем диска</h3></td>
         </tr>
 
         @foreach (var i in Model)
         {
             <tr>
                 <td><a href="https://localhost:44322/home/GetResultAnalyse?dirName=@i.Name">@i.Name  </a></td>
-                <td>@(i.TotalSize-i.AvailableFreeSpace) байт</td>
+                <td>@i.TotalSize / @(i.TotalSize-i.AvailableFreeSpace) байт</td>
             </tr>
 
         }
