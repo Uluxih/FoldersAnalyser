@@ -1,0 +1,28 @@
+﻿@using System.IO;
+@model DriveInfo[]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example</title>
+</head>
+<body>
+    <h2>Пожалуйста, выберите диск для анализа и не закрывайте окно. </h2>
+    <table>
+        <tr>
+            <td> <h3>Имя диска</h3></td>
+            <td><h3>Общий размер диска</h3></td>
+        </tr>
+
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td><a href="https://localhost:44322/home/GetResultAnalyse?dirName=@i.Name">@i.Name  </a></td>
+                <td>@(i.TotalSize-i.AvailableFreeSpace) байт</td>
+            </tr>
+
+        }
+    </table>
+
+
+</body>
+</html>

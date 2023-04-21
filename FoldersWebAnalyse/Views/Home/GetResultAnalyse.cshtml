@@ -1,0 +1,38 @@
+﻿@using FoldersWebAnalyse.Models;
+@model FolderClass
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Элемент details в HTML5</title>
+    <title>Example</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td> <h3>Имя папки</h3></td>
+            <td><h3>Вес папки</h3></td>
+        </tr>
+        @foreach (var i in Model.folders)
+        {
+            <tr>
+                <td> <a href="https://localhost:44322/home/GetResultAnalyse?dirName=@i.Name">@i.Name  </a></td>
+                <td> @i.GetSize()</td>
+            </tr>
+        }
+        <tr>
+            <td> <h3>Имя файла</h3></td>
+            <td><h3>Вес файла</h3></td>
+        </tr>
+
+        @foreach (var i in Model.files)
+        {
+            <tr>
+                <td> @i.Name</td>
+                <td> @i.GetSize()</td>
+            </tr>
+        }
+    </table>
+    <h1>Размер открытой директории: @Model.GetSize()</h1>
+</body>
+</html>
